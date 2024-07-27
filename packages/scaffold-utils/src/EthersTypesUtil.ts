@@ -44,3 +44,8 @@ export type Chain = {
   name: string
   chainId: number
 }
+
+export type RelayConfig = {
+  url: string;
+  fallbackUrl: string;
+}

@@ -20,7 +20,8 @@ import type {
   ProviderType,
   Chain,
   Provider,
-  EthersStoreUtilState
+  EthersStoreUtilState,
+  RelayConfig
 } from '@web3modal/scaffold-utils/ethers'
 import { ethers, utils } from 'ethers'
 import {
@@ -38,7 +39,8 @@ export interface Web3ModalClientOptions extends Omit<LibraryOptions, 'defaultCha
   defaultChain?: Chain
   chainImages?: Record<number, string>
   connectorImages?: Record<string, string>
-  tokens?: Record<number, Token>
+  tokens?: Record<number, Token>,
+  relayConfig?:RelayConfig
 }
 
 export type Web3ModalOptions = Omit<Web3ModalClientOptions, '_sdkVersion'>
@@ -399,7 +401,8 @@ export class Web3Modal extends Web3ModalScaffold {
         description: this.metadata ? this.metadata.description : '',
         url: this.metadata ? this.metadata.url : '',
         icons: this.metadata ? this.metadata.icons : ['']
-      }
+      },
+      relayUrl: this.options?.relayConfig?.url
     }
 
     this.walletConnectProvider = await EthereumProvider.init(walletConnectProviderOptions)

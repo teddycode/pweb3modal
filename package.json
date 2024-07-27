@@ -1,7 +1,8 @@
 {
-  "name": "web3modal",
-  "version": "3.0.0",
+  "name": "pkw3modal",
+  "version": "3.6.0",
   "private": true,
+  "description": "A testcase for publish",
   "type": "module",
   "scripts": {
     "build:clean": "turbo run build:clean",

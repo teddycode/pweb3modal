@@ -14,6 +14,9 @@ if (!projectId) {
   throw new Error('VITE_PROJECT_ID is not set')
 }
 
+const relayUrl = import.meta.env.VITE_RELAY_URL
+console.log("relay url:",relayUrl);
+
 // 2. Set chains
 const chains = [
   {
@@ -52,6 +55,9 @@ createWeb3Modal({
   themeVariables: {
     '--w3m-color-mix': '#00BB7F',
     '--w3m-color-mix-strength': 20
+  },
+  relayConfig:{
+    url: relayUrl,
   }
 })
 
